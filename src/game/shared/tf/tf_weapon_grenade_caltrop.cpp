@@ -34,11 +34,6 @@
 LINK_ENTITY_TO_CLASS( tf_weapon_grenade_caltrop_projectile, CTFGrenadeCaltropProjectile );
 PRECACHE_WEAPON_REGISTER( tf_weapon_grenade_caltrop_projectile );
 
-IMPLEMENT_NETWORKCLASS_ALIASED( TFGrenadeCaltropProjectile, DT_TFGrenadeCaltropProjectile )
-
-BEGIN_NETWORK_TABLE( CTFGrenadeCaltropProjectile, DT_TFGrenadeCaltropProjectile )
-END_NETWORK_TABLE()
-
 
 
 #define GRENADE_MODEL "models/weapons/w_models/w_grenade_beartrap.mdl"

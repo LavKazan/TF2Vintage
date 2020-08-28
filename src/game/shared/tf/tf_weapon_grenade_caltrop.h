@@ -22,7 +22,6 @@ class CTFGrenadeCaltropProjectile : public CTFWeaponBaseGrenadeProj
 {
 public:
 	DECLARE_CLASS( CTFGrenadeCaltropProjectile, CTFWeaponBaseGrenadeProj );
-	DECLARE_NETWORKCLASS();
 
 	// Unique identifier.
 	virtual int			GetWeaponID( void ) const			{ return TF_WEAPON_GRENADE_CALTROP; }

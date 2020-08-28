@@ -69,7 +69,7 @@ TFPlayerClassData_t::TFPlayerClassData_t()
 		m_aWeapons[iWeapon] = TF_WEAPON_NONE;
 	}
 
-	for ( int iGrenade = 0; iGrenade < TF_PLAYER_GRENADE_COUNT; ++iGrenade )
+	for ( int iGrenade = 0; iGrenade < TF_PLAYER_GRENADE_COUNT; iGrenade++ )
 	{
 		m_aGrenades[iGrenade] = TF_WEAPON_NONE;
 	}

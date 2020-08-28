@@ -22,7 +22,6 @@
 #include "tf_weapon_grenade_nail.h"
 #include "tf_weapon_grenade_napalm.h"
 #include "tf_weapon_grenade_gas.h"
-#include "tf_weapon_grenade_normal.h"
 
 #if defined( CLIENT_DLL )
 #define CTFWeaponBaseGun C_TFWeaponBaseGun

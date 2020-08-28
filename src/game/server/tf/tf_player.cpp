@@ -874,8 +874,11 @@ void CTFPlayer::PreThink()
 		CTFWeaponBase *pGrenade = Weapon_OwnsThisID( pData->m_aGrenades[0] );
 		if ( pGrenade )
 		{
-			pGrenade->Deploy();
+			//pGrenade->Deploy();
+			SetOffHandWeapon(pGrenade);
 		}
+		Msg("pGrenade %s \n", pData->m_aGrenades[0]);
+		//Msg("pGrenade %s \n", pGrenade);
 	}
 	
 	if ( m_nButtons & IN_GRENADE2 )
@@ -884,7 +887,8 @@ void CTFPlayer::PreThink()
 		CTFWeaponBase *pGrenade = Weapon_OwnsThisID( pData->m_aGrenades[1] );
 		if ( pGrenade )
 		{
-			pGrenade->Deploy();
+			//pGrenade->Deploy();
+			SetOffHandWeapon(pGrenade);
 		}
 	}
 
@@ -2524,6 +2528,7 @@ void CTFPlayer::ManageGrenades( TFPlayerClassData_t *pData )
 			{
 				const char *pszGrenadeName = WeaponIdToClassname( pData->m_aGrenades[iGrenade] );
 				pGrenade = (CTFWeaponBase *)GiveNamedItem( pszGrenadeName );
+				Msg("Grenade class type: %s", pszGrenadeName);
 
 				if ( pGrenade )
 				{
