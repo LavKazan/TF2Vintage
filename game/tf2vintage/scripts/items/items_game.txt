@@ -9714,6 +9714,36 @@
 				"sound_burst"		"Weapon_AWP.SingleCrit"
 			}
 		}
+		"10880"
+		{
+			"name"	"The Freedom Staff"
+			"year"			"2012"
+			"prefab"	"weapon_melee_allclass weapon_reskin"
+			"item_type_name"	"#TF_Weapon_Staff"
+			"item_name"	"#TF_TW_Staff"
+			"item_description"	"#TF_TW_Staff_Desc"
+			"propername"	"1"
+			"item_logname"	"freedom_staff"
+			"item_iconname"	"freedom_staff"
+			"image_inventory"	"backpack/workshop_partner/weapons/c_models/c_tw_eagle/c_tw_eagle"		
+			"model_player"	"models/workshop_partner/weapons/c_models/c_tw_eagle/c_tw_eagle.mdl"
+			"anim_slot" "MELEE_ALLCLASS"
+			"used_by_classes"
+			{
+				"soldier"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"					"20 0 -10"			
+			}
+			"visuals"
+			{
+				"sound_melee_hit_world"	"Weapon_Machete.HitWorld"
+				"sound_melee_miss"	"Weapon_Machete.Miss"
+				"sound_melee_hit"	"Weapon_Machete.HitFlesh"
+				"sound_burst"		"Weapon_Machete.MissCrit"
+			}
+		}
 		"10947"
 		{
 			"name"	"The Quackenbirdt"
