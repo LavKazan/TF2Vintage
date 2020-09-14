@@ -9744,6 +9744,38 @@
 				"sound_burst"		"Weapon_Machete.MissCrit"
 			}
 		}
+		"10933"
+		{
+			"name"	"The Ap-Sap"
+			"year"	"2013"
+			"prefab"	"weapon_builder_spy"
+			"item_type_name"	"#TF_Weapon_Spy_Sapper"
+			"item_name"	"#TF_Weapon_Ap_Sap"
+			"item_description"	"#TF_Weapon_Ap_Sap_desc"
+			"item_logname"	"psapper"
+			"item_iconname"	"psapper"
+			"image_inventory"	"backpack/weapons/c_models/c_p2rec/c_p2rec"
+			"propername"	"1"
+			"model_player"	"models/weapons/c_models/c_p2rec/c_p2rec.mdl"
+			"model_world"	"models/weapons/c_models/c_p2rec/c_p2rec.mdl"
+			"static_attrs"
+			{
+				"min_viewmodel_offset"		"10 0 -6"				
+			}
+			"attributes"
+			{
+				"sapper voice pak"
+				{
+					"attribute_class"	"sapper_voice_pak"
+					"value" "1.0"
+				}
+				"sapper voice pak idle wait"
+				{
+					"attribute_class"	"sapper_voice_pak_idle_wait"
+					"value" "3.0"
+				}
+			}
+		}
 		"10947"
 		{
 			"name"	"The Quackenbirdt"
