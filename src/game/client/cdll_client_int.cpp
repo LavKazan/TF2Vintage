@@ -1234,6 +1234,9 @@ int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physi
 		Q_snprintf( command, sizeof( command ), "%s -game \"%s\" -novid -high -steam\n", CommandLine()->GetParm( 0 ), CommandLine()->ParmValue( "-game" ) );
 		Discord_Register( cl_discord_appid.GetString(), command );
 	}
+	
+	// Swear list.
+	g_BannedWords.InitFromFile( "bannedwords.txt" );
 
 	return true;
 }

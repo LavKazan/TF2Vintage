@@ -136,6 +136,10 @@ ConVar tf2v_console_grenadelauncher_magazine("tf2v_console_grenadelauncher_magaz
 
 ConVar tf2v_remove_loser_disguise("tf2v_remove_loser_disguise", "0", FCVAR_NOTIFY | FCVAR_REPLICATED, "Forces spies on a losing team to undisguise.", true, 0, true, 1 );
 
+#ifdef CLIENT_DLL
+ConVar tf2v_censor_swears( "tf2v_censor_swears", "0", FCVAR_GAMEDLL, "Automatically censor bad words.", true, 0, true, 1 );
+#endif
+
 #ifdef GAME_DLL
 // TF overrides the default value of this convar
 ConVar mp_waitingforplayers_time( "mp_waitingforplayers_time", ( IsX360() ? "15" : "30" ), FCVAR_GAMEDLL | FCVAR_DEVELOPMENTONLY, "WaitingForPlayers time length in seconds" );
@@ -8043,6 +8047,11 @@ void CTFGameRules::ModifySentChat( char *pBuf, int iBufSize )
 			return;
 		}
 	}
+	
+#ifdef CLIENT_DLL
+	if ( tf2v_censor_swears.GetBool() )
+		g_BannedWords.CensorBannedWordsInplace( pBuf );
+#endif
 
 	int i = 0;
 	while ( pBuf[i] )
