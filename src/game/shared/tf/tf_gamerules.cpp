@@ -21,6 +21,7 @@
 	#include "c_tf_player.h"
 	#include "c_tf_objective_resource.h"
 	#include "c_user_message_register.h"
+	#include "tf_autorp.h"
 #else
 	#include "basemultiplayerplayer.h"
 	#include "voice_gamemgr.h"
@@ -109,7 +110,7 @@ ConVar tf_halloween( "tf_halloween", "0", FCVAR_NOTIFY | FCVAR_REPLICATED, ""
 ConVar tf_christmas( "tf_christmas", "0", FCVAR_NOTIFY | FCVAR_REPLICATED );
 ConVar tf_fullmoon( "tf_fullmoon", "0", FCVAR_NOTIFY | FCVAR_REPLICATED, "");
 //ConVar tf_forced_holiday( "tf_forced_holiday", "0", FCVAR_NOTIFY | FCVAR_REPLICATED ); Live TF2 uses this instead but for now lets just use separate ConVars
-ConVar tf_medieval_autorp( "tf_medieval_autorp", "1", FCVAR_NOTIFY | FCVAR_REPLICATED, "Enable Medieval Mode auto-roleplaying." );
+ConVar tf_medieval_autorp( "tf_medieval_autorp", "1", FCVAR_NOTIFY | FCVAR_REPLICATED, "Enable Medieval Mode auto-roleplaying.", true, 0, true, 1 );
 ConVar tf_flag_caps_per_round( "tf_flag_caps_per_round", "3", FCVAR_REPLICATED, "Number of flag captures per round on CTF maps. Set to 0 to disable.", true, 0, true, 9
 						   #if defined( GAME_DLL )
 							   , ValidateCapturesPerRound
@@ -8032,16 +8033,16 @@ const char *CTFGameRules::GetVideoFileForMap( bool bWithExtension /*= true*/ )
 void CTFGameRules::ModifySentChat( char *pBuf, int iBufSize )
 {
 	// Medieval mode only
-	/*if ( !IsInMedievalMode() || !tf_medieval_autorp.GetBool() )
-		return;
-
-	if ( !AutoRP() )
+	if ( IsInMedievalMode() && tf_medieval_autorp.GetBool() )
 	{
-		Warning( "AutoRP initialization failed!" );
-		return;
+		if (AutoRP())
+			AutoRP()->ApplyRPTo( pBuf, iBufSize );
+		else
+		{
+			Warning( "AutoRP initialization failed!" );
+			return;
+		}
 	}
-
-	AutoRP()->ApplyRPTo( pBuf, iBufSize );
 
 	int i = 0;
 	while ( pBuf[i] )
@@ -8051,7 +8052,8 @@ void CTFGameRules::ModifySentChat( char *pBuf, int iBufSize )
 			pBuf[i] = '\'';
 		}
 		i++;
-	}*/
+	}
+
 }
 
 void AddSubKeyNamed( KeyValues *pKeys, const char *pszName )

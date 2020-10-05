@@ -220,6 +220,8 @@ $Project "Client (TF)"
 			$File	"tf\c_merasmus.cpp"	
 			$File	"worldlight.cpp"
 			$File	"worldlight.h"
+			$File	"tf\tf_autorp.cpp"
+			$File	"tf\tf_autorp.h"
 			
 			$Folder	"Unused"
 			{
